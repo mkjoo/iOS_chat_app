@@ -6,6 +6,10 @@ target 'IOSChatApp' do
   use_frameworks!
 
   # Pods for IOSChatApp
+  pod 'Firebase/Analytics'
+
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
 
   target 'IOSChatAppTests' do
     inherit! :search_paths
