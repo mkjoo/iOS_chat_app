@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		10A47E98772637A095A3F4E0 /* Pods_IOSChatApp_IOSChatAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAD607CE37A2484C97932B4 /* Pods_IOSChatApp_IOSChatAppUITests.framework */; };
-		5E8F0E9C25F73F1E001D4CF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E8F0E9B25F73F1D001D4CF0 /* GoogleService-Info.plist */; };
+		1A2A74A825F7BCAF00CE4ED3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A2A74A725F7BCAF00CE4ED3 /* GoogleService-Info.plist */; };
 		5E8F0EAB25F7472D001D4CF0 /* ChatContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0EA925F7472D001D4CF0 /* ChatContentsTableViewCell.swift */; };
 		5E8F0EAC25F7472D001D4CF0 /* ChatContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8F0EAA25F7472D001D4CF0 /* ChatContentsTableViewCell.xib */; };
 		5E8F0EB125F79D32001D4CF0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F0EB025F79D32001D4CF0 /* ChatViewController.swift */; };
@@ -44,12 +44,12 @@
 
 /* Begin PBXFileReference section */
 		0143A0DAAB6A99401BB0C1E0 /* Pods_IOSChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2A74A725F7BCAF00CE4ED3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E8472A1BA94DF07AC28551F /* Pods-IOSChatApp-IOSChatAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChatApp-IOSChatAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-IOSChatApp-IOSChatAppUITests/Pods-IOSChatApp-IOSChatAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2DAD607CE37A2484C97932B4 /* Pods_IOSChatApp_IOSChatAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSChatApp_IOSChatAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		445315BADDF635A662027019 /* Pods-IOSChatApp-IOSChatAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChatApp-IOSChatAppUITests.release.xcconfig"; path = "Target Support Files/Pods-IOSChatApp-IOSChatAppUITests/Pods-IOSChatApp-IOSChatAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		56D4B60DA50C9BBF9F5BDAA5 /* Pods-IOSChatAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChatAppTests.debug.xcconfig"; path = "Target Support Files/Pods-IOSChatAppTests/Pods-IOSChatAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D0DD350CC4845D5F9DC058D /* Pods-IOSChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSChatApp.debug.xcconfig"; path = "Target Support Files/Pods-IOSChatApp/Pods-IOSChatApp.debug.xcconfig"; sourceTree = "<group>"; };
-		5E8F0E9B25F73F1D001D4CF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E8F0EA925F7472D001D4CF0 /* ChatContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentsTableViewCell.swift; sourceTree = "<group>"; };
 		5E8F0EAA25F7472D001D4CF0 /* ChatContentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatContentsTableViewCell.xib; sourceTree = "<group>"; };
 		5E8F0EB025F79D32001D4CF0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 				5E8F0EAA25F7472D001D4CF0 /* ChatContentsTableViewCell.xib */,
 				5ED0D6BA25EE0072004B61C7 /* Assets.xcassets */,
 				5ED0D6BC25EE0072004B61C7 /* LaunchScreen.storyboard */,
+				1A2A74A725F7BCAF00CE4ED3 /* GoogleService-Info.plist */,
 				5ED0D6BF25EE0072004B61C7 /* Info.plist */,
-				5E8F0E9B25F73F1D001D4CF0 /* GoogleService-Info.plist */,
 			);
 			path = IOSChatApp;
 			sourceTree = "<group>";
@@ -292,8 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ED0D6BE25EE0072004B61C7 /* LaunchScreen.storyboard in Resources */,
-				5E8F0E9C25F73F1E001D4CF0 /* GoogleService-Info.plist in Resources */,
 				5E8F0EAC25F7472D001D4CF0 /* ChatContentsTableViewCell.xib in Resources */,
+				1A2A74A825F7BCAF00CE4ED3 /* GoogleService-Info.plist in Resources */,
 				5ED0D6BB25EE0072004B61C7 /* Assets.xcassets in Resources */,
 				5ED0D6B925EE0072004B61C7 /* Main.storyboard in Resources */,
 			);
