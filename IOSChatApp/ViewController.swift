@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Firebase
+import GoogleSignIn
 
 class ViewController: UIViewController {
 
@@ -20,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.callLoginView()
+        self.setupAuthListener()
     }
 
 
@@ -38,17 +40,42 @@ private extension ViewController {
 
         self.box.image = #imageLiteral(resourceName: "talkIcon")
         //self.view.backgroundColor = UIColor.black
-        
-        
-        
     }
     
-    func callLoginView() {
-        print("aaa")
-        guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-        else { return print("aaas") }
-        
-        self.present(loginVC, animated: false, completion: nil)
+    func setupAuthListener() {
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            if let _ = user {
+                self?.presentChatListViewController()
+            } else {
+                self?.presentLoginViewController()
+            }
+        }
+    }
+    
+    func presentLoginViewController() {
+        let loginViewControler = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewControler.modalPresentationStyle = .overFullScreen
+        loginViewControler.delegate = self
+        self.present(loginViewControler, animated: false, completion: nil)
+    }
+    
+    func presentChatListViewController() {
+        let testViewController = TestViewController(nibName: "TestViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: testViewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+        self.present(navigationController, animated: true, completion: nil)
+//        guard let chatListView = self.storyboard?.instantiateViewController(withIdentifier: "ChatListViewController") as? ChatViewController else { return }
+//        self.present(chatListView, animated: true, completion: nil)
     }
 
+}
+
+
+extension ViewController: LoginViewControllerDelegate {
+    
+    func loginViewController(_ viewController: LoginViewController, didSuccessLoginWith authDataResult: AuthDataResult) {
+        viewController.dismiss(animated: true) { [weak self] in
+            self?.presentChatListViewController()
+        }
+    }
 }

@@ -10,17 +10,24 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController {
+protocol LoginViewControllerDelegate: class {
+    func loginViewController(_ viewController: LoginViewController, didSuccessLoginWith authDataResult: AuthDataResult)
+}
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+class LoginViewController: UIViewController {
+    
+    weak var delegate: LoginViewControllerDelegate?
+
+    @IBOutlet weak var emailTextField: UITextField?
+    @IBOutlet weak var passwordTextField: UITextField?
+    @IBOutlet weak var loginButton: UIButton?
+    @IBOutlet weak var signUpButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //GIDSignIn.sharedInstance().presentingViewController = self
-        self.setLoginView()
+        self.setLoginButton()
+        self.setupDummyData()
         // Do any additional setup after loading the view.
     }
 
@@ -32,48 +39,38 @@ private extension LoginViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
-    func setLoginView() {
-        
-        self.loginButton.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                guard let chatListView = self.storyboard?.instantiateViewController(withIdentifier: "ChatListViewController") as? ChatViewController else {return}
-                self.present(chatListView, animated: true, completion: nil)
-            }
-        }
+    func setLoginButton() {
+        self.loginButton?.addTarget(self, action: #selector(self.loginEvent(sender:)), for: .touchUpInside)
     }
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-      withError error: NSError!) {
-        if (error == nil) {
-          // Perform any operations on signed in user here.
-          // ...
-        } else {
-          print("\(error.localizedDescription)")
-        }
+    func setupDummyData() {
+        self.emailTextField?.text = "test@gmail.com"
+        self.passwordTextField?.text = "test1234"
     }
 }
 
 private extension LoginViewController {
-    @objc func loginEvent() {
+    
+    func presentErrorAlert(with error: Error) {
+        let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func loginEvent(sender: UIButton) {
         
-        guard let email = self.emailTextField.text,
-              let password = self.passwordTextField.text else { return }
+        guard let email = self.emailTextField?.text,
+              let password = self.passwordTextField?.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { (user, err) in
-            
-            if err != nil {
-                let alert = UIAlertController(title: "ERROR", message: err.debugDescription, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
-            } else {
-                if user != nil {
-                    guard let chatListView = self.storyboard?.instantiateViewController(withIdentifier: "ChatListViewController") as? ChatViewController else { return }
-                    self.present(chatListView, animated: true, completion: nil)
-                }
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, err) in
+            print("\(#function) - 1")
+            if let error = err {
+                print("\(#function) - 2")
+                self.presentErrorAlert(with: error)
+            } else if let authDataResult = authDataResult {
+                print("\(#function) - 3")
+                self.delegate?.loginViewController(self, didSuccessLoginWith: authDataResult)
             }
-                
         }
     }
 }
