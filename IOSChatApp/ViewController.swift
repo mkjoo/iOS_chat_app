@@ -60,8 +60,8 @@ private extension ViewController {
     }
     
     func presentChatListViewController() {
-        let testViewController = TestViewController(nibName: "TestViewController", bundle: nil)
-        let navigationController = UINavigationController(rootViewController: testViewController)
+        let chatListViewController = ChatListViewController(nibName: "ChatListViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: chatListViewController)
         navigationController.modalPresentationStyle = .overFullScreen
         self.present(navigationController, animated: true, completion: nil)
 //        guard let chatListView = self.storyboard?.instantiateViewController(withIdentifier: "ChatListViewController") as? ChatViewController else { return }

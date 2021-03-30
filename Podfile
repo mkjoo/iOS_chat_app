@@ -11,6 +11,7 @@ target 'IOSChatApp' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Messaging'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   pod 'SnapKit'
 

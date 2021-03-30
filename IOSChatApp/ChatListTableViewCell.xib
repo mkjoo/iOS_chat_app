@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="ChatListTableViewCell" customModule="IOSChatApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="581" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="581" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NX-GV-aGm" userLabel="ChatTitleLabel">
+                        <rect key="frame" x="3" y="3" width="465" height="38.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qn-hS-7M3" userLabel="ChatContentsLabel">
+                        <rect key="frame" x="3" y="42.5" width="465" height="70.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-CA-qjF" userLabel="ChatTimeLabel">
+                        <rect key="frame" x="469" y="3" width="109" height="38.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tsW-CA-qjF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="49T-ZV-eCv"/>
+                    <constraint firstItem="7Qn-hS-7M3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="9C8-Rn-zvk"/>
+                    <constraint firstItem="7Qn-hS-7M3" firstAttribute="width" secondItem="8NX-GV-aGm" secondAttribute="width" id="B2g-Dh-PIw"/>
+                    <constraint firstItem="8NX-GV-aGm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="HJz-Xz-aPo"/>
+                    <constraint firstItem="tsW-CA-qjF" firstAttribute="leading" secondItem="8NX-GV-aGm" secondAttribute="trailing" constant="1" id="UG9-uq-BOM"/>
+                    <constraint firstAttribute="bottom" secondItem="7Qn-hS-7M3" secondAttribute="bottom" constant="3" id="b7b-kD-T1b"/>
+                    <constraint firstItem="8NX-GV-aGm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="hgW-2l-SCo"/>
+                    <constraint firstItem="8NX-GV-aGm" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="4/5" id="iBL-1S-0pZ"/>
+                    <constraint firstAttribute="trailing" secondItem="tsW-CA-qjF" secondAttribute="trailing" constant="3" id="jDo-yb-TUs"/>
+                    <constraint firstItem="8NX-GV-aGm" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="2/6" id="pIr-zU-q1F"/>
+                    <constraint firstItem="tsW-CA-qjF" firstAttribute="height" secondItem="8NX-GV-aGm" secondAttribute="height" id="u63-0t-Rdb"/>
+                    <constraint firstItem="7Qn-hS-7M3" firstAttribute="top" secondItem="8NX-GV-aGm" secondAttribute="bottom" constant="1" id="yEP-Ik-9L5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="265.94202898550725" y="91.741071428571431"/>
+        </tableViewCell>
+    </objects>
+</document>

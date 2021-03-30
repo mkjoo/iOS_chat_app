@@ -70,6 +70,7 @@ private extension LoginViewController {
             } else if let authDataResult = authDataResult {
                 print("\(#function) - 3")
                 self.delegate?.loginViewController(self, didSuccessLoginWith: authDataResult)
+                   
             }
         }
     }
