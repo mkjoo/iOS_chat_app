@@ -10,6 +10,12 @@ target 'IOSChatApp' do
 
   pod 'Firebase/Firestore'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Core'
+
+  pod 'SnapKit'
+
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'IOSChatAppTests' do
     inherit! :search_paths

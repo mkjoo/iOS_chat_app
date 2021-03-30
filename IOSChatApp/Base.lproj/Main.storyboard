@@ -8,11 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--viewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IOSChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="IOSChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,8 +19,58 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="89"/>
+            <point key="canvasLocation" x="191" y="80"/>
+        </scene>
+        <!--ChatListViewController-->
+        <scene sceneID="Yhc-kZ-CM8">
+            <objects>
+                <viewController storyboardIdentifier="ChatListViewController" title="ChatListViewController" id="gwN-0v-fW4" customClass="ChatListViewController" customModule="IOSChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WF5-nq-NbM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvQ-DC-wQ8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yV8-C1-aQ2">
+                                        <rect key="frame" x="30" y="9.5" width="354" height="35.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Bold" family=".AppleKoreanFont" pointSize="31"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yV8-C1-aQ2" secondAttribute="bottom" constant="5" id="7jD-wX-UnT"/>
+                                    <constraint firstItem="yV8-C1-aQ2" firstAttribute="leading" secondItem="LvQ-DC-wQ8" secondAttribute="leading" constant="30" id="LpP-WE-4gt"/>
+                                    <constraint firstAttribute="height" constant="50" id="QS1-S1-XHW"/>
+                                    <constraint firstAttribute="trailing" secondItem="yV8-C1-aQ2" secondAttribute="trailing" constant="30" id="v6a-6v-wEc"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7dj-xR-SKk">
+                                <rect key="frame" x="0.0" y="99" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7RV-Tf-Pus"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7RV-Tf-Pus" firstAttribute="trailing" secondItem="LvQ-DC-wQ8" secondAttribute="trailing" id="3Ze-gb-GZi"/>
+                            <constraint firstItem="7RV-Tf-Pus" firstAttribute="trailing" secondItem="7dj-xR-SKk" secondAttribute="trailing" id="5D9-XH-HSd"/>
+                            <constraint firstItem="7RV-Tf-Pus" firstAttribute="bottom" secondItem="7dj-xR-SKk" secondAttribute="bottom" constant="40" id="INl-fI-2Ni"/>
+                            <constraint firstItem="7dj-xR-SKk" firstAttribute="leading" secondItem="7RV-Tf-Pus" secondAttribute="leading" id="IPN-LQ-NLH"/>
+                            <constraint firstItem="LvQ-DC-wQ8" firstAttribute="top" secondItem="7RV-Tf-Pus" secondAttribute="top" id="IuK-8M-OId"/>
+                            <constraint firstItem="7dj-xR-SKk" firstAttribute="top" secondItem="LvQ-DC-wQ8" secondAttribute="bottom" constant="5" id="TMl-DX-Zdl"/>
+                            <constraint firstItem="LvQ-DC-wQ8" firstAttribute="leading" secondItem="7RV-Tf-Pus" secondAttribute="leading" id="mZW-U9-s25"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yg5-Km-FnQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1717" y="80"/>
         </scene>
     </scenes>
     <resources>

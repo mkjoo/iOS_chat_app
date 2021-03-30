@@ -7,16 +7,41 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
+    public static var user: GIDGoogleUser!
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            if(error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("not signed in before or signed out")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
+        print("User email: \(user.profile.email ?? "No email")")
+        
+        // singleton 객체 - user가 로그인을 하면, AppDelegate.user로 다른곳에서 사용 가능
+        AppDelegate.user = user
+        
+        return
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
         FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance()?.clientID = "835011080318-o6lgma1fo6or2m8s0htr3vsce5p9vum7.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.delegate = self
+        
         return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return (GIDSignIn.sharedInstance()?.handle(url))!
     }
 
     // MARK: UISceneSession Lifecycle
@@ -35,4 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
 
